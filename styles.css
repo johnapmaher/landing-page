@@ -54,3 +54,12 @@ body {
     padding: 1rem;
     font-size: 0.8rem;
 }
+
+/* Set canvas styles for the matrix background */
+#matrix-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
