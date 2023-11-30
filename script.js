@@ -27,4 +27,19 @@ document.addEventListener("DOMContentLoaded", () => {
         loop: true,
         duration: 900
     });
+     // Laser animations
+     const laserAnimation = (selector) => {
+        anime({
+            targets: selector,
+            translateY: [-1000, 1000], // Vertical movement
+            easing: 'linear',
+            loop: true,
+            duration: 2000,
+            delay: anime.random(0, 1000) // Random delay for each laser
+        });
+    };
+
+    laserAnimation('#laser1');
+    laserAnimation('#laser2');
+    laserAnimation('#laser3');
 });
