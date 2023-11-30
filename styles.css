@@ -1,65 +1,47 @@
-/* Reset some default styles */
-body, h1, p {
+/* Basic Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-/* Set a futuristic background */
 body {
-    background-color: #111;
-    color: #fff;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Arial', sans-serif;
+    background-color: #101010;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(to right, #06beb6, #48b1bf);
     text-align: center;
+    padding: 20px 0;
 }
 
-/* Style the header */
-.header {
-    background-color: #00aaff;
-    padding: 2rem;
-}
-
-.header h1 {
-    font-size: 3rem;
-}
-
-/* Style the main content */
-.content {
-    padding: 2rem;
-}
-
-.content p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-/* Style the call-to-action button */
-.cta-button {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background-color: #ff5500;
+header h1 {
     color: #fff;
-    text-decoration: none;
-    font-size: 1.25rem;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
 }
 
-.cta-button:hover {
-    background-color: #ff8800;
+.main {
+    padding: 20px;
 }
 
-/* Style the footer */
-.footer {
-    background-color: #222;
-    padding: 1rem;
-    font-size: 0.8rem;
+.intro, .features {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
 }
 
-/* Set canvas styles for the matrix background */
-#matrix-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
+.feature {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
 }
 
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #303030;
+}
