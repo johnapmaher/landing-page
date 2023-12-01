@@ -1,4 +1,72 @@
 document.addEventListener("DOMContentLoaded", () => {
+    // ... existing JavaScript ...
+
+// Space Background Animation
+const spaceCanvas = document.getElementById('spaceCanvas');
+const ctx = spaceCanvas.getContext('2d');
+spaceCanvas.width = window.innerWidth;
+spaceCanvas.height = window.innerHeight;
+
+let stars = [];
+const numberOfStars = 200;
+
+class Star {
+    constructor(x, y, radius, velocity) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+        this.velocity = velocity;
+    }
+
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+        ctx.fillStyle = 'white';
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    update() {
+        this.draw();
+        this.y += this.velocity;
+
+        if (this.y > spaceCanvas.height) {
+            this.y = 0;
+            this.x = Math.random() * spaceCanvas.width;
+        }
+    }
+}
+
+const initStars = () => {
+    stars = [];
+    for (let i = 0; i < numberOfStars; i++) {
+        const x = Math.random() * spaceCanvas.width;
+        const y = Math.random() * spaceCanvas.height;
+        const radius = Math.random() * 1.5;
+        const velocity = 1 + Math.random();
+        stars.push(new Star(x, y, radius, velocity));
+    }
+};
+
+const animateStars = () => {
+    requestAnimationFrame(animateStars);
+    ctx.clearRect(0, 0, spaceCanvas.width, spaceCanvas.height);
+    stars.forEach(star => {
+        star.update();
+    });
+};
+
+window.addEventListener('resize', () => {
+    spaceCanvas.width = window.innerWidth;
+    spaceCanvas.height = window.innerHeight;
+    initStars();
+});
+
+initStars();
+animateStars();
+
+// ... existing JavaScript ...
+
     // Animate header text
     anime({
         targets: 'header h1',
